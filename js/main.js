@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    const API_URL = "https://devmaycon.pythonanywhere.com"
 
     function onDragStart(source, piece) {
         // Impede que o jogador mova as peças do oponente ou que faça movimentos após o fim do jogo
@@ -59,13 +60,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     async function get_move_evaluation(actualFen) {
-        /*let evaluation = await fetch('http://localhost:5000/position', {
+        let evaluation = await fetch(`${API_URL}/position`, {
             method: 'POST',
             body: JSON.stringify({fen: actualFen}),
             headers: {
                 "Content-Type": "application/json"
             }
-        })*/
+        })
         let evaluationJson = {message: 'Book Move.'};//await evaluation.json();
         if (await evaluationJson.message == "Book Move.") {
             openingHtml = document.getElementsByClassName('chess-chatbot-opening')[0];
