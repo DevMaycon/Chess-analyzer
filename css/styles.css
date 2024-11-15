@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+
+    --background: rgb(1,1,1);
+    --background-container: rgb(31, 0, 47);
+
+    --background-chatbot: rgb(4, 0, 3);
+    --background-chatbot-text: rgb(254, 254, 254);
+    --background-chatbot-message: rgb(52, 43, 57);
+
+    --chess-white: rgba(239, 239, 239, 0.6);
+    --chess-black: rgba(97, 99, 241, 0.6);
+    --chess-text-color: rgb(207, 209, 222);
+    --chess-highlight-color: rgba(255, 255, 255, 0.8);
+
+    --stockfish-lines: #949494;
+    --stockfish-text-color: #d4d4d4;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+}
+
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 95%;
+    background-color: var(--background-container);
+    border-radius: 1vh;
+    color: white;
+    padding: 2vh;
+    
+}
+
+#line-container {
+    height: 100%;
+    width: 0.2vh;
+    margin: 2.5%;
+    background-color: rgb(199, 199, 199);
+}
+
+.chess-side-e {
+    min-width: 300px;
+    width: 35%;
+    height: 100%;
+    scroll-behavior: smooth;
+    aspect-ratio: 1;
+}
+
+#chess-board {
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.chess-stockfish-lines {
+    width: 100%;
+    height: min-content;
+    margin-top: 5%;
+    padding: 1vh;
+
+    border-radius: 2px;
+    border: 1px solid var(--stockfish-lines);
+    background-color: var(--background-chatbot);
+    overflow: auto;
+}
+
+.chess-stockfish-lines::-webkit-scrollbar {
+    height: 10px;
+}
+
+.chess-stockfish-lines::-webkit-scrollbar-track {
+    background-color: rgb(46, 46, 46);
+    padding: 20px;
+}
+
+.chess-stockfish-sequence {
+    display: flex;
+    flex-direction: row;
+    text-wrap: nowrap;
+    height: fit-content;
+    width: max-content;
+}
+
+.chess-stockfish-sequence p {
+    color: var(--stockfish-text-color);
+    border: #656fd6 1px solid;
+    border-radius: 1px;
+    margin: 0.15rem 0rem 0.15rem 0rem;
+    padding: 0px 1vh 0px 1vh;
+}
+
+.chess-stockfish-sequence p:hover {
+    background-color: var(--stockfish-lines);
+    text-decoration: none;
+    user-select: none;
+}
+
+
+.chess-stockfish-sequence span {
+    color: var(--stockfish-text-color);
+    border: var(--stockfish-lines) 1px solid;
+    border-radius: 1px;
+    font-weight: 600;
+    margin: 0.15rem;
+    padding: 0px 1vh 0px 1vh;
+}
+
+.chess-stockfish-sequence span:hover {
+    background-color: var(--stockfish-lines);
+    text-decoration: none;
+    user-select: none;
+}
+
+.chess-side-d{
+    width: 70%;
+    height: 100%;
+
+    border-radius: 20px 5px 20px 5px;
+    background-color: var(--background-chatbot);
+}
+
+.chess-side-d *{
+    font-family: 'Nunito';
+}
+
+.chess-side-d::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chess-side-d::-webkit-scrollbar-track {
+    background-color: rgb(222, 210, 210);
+    border-radius: 5px;
+    border: 5px solid transparent;
+}
+
+.chess-chatbot-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background-chatbot-message);
+    border-radius: 2.5vh;
+    padding: 1vh;
+    margin: 1vh;
+}
+
+.chess-chatbot-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid white;
+}
+
+.chess-chatbot-header h1 {
+    margin: 0px;
+    font-size: 3rem;
+}
+
+.chess-chatbot-opening p {
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    font-weight: 700;
+    color: white;
+    margin: auto;
+    background-color: rgb(50, 50, 50);
+    border-bottom: 2px solid white;
+    border-right: 0px solid white;
+    border-left: 2px solid white;
+    text-decoration: underline;
+    user-select: none;
+}
+
+.chess-chatbot-logo {
+    width: 5%;
+    border-radius: 50%;
+    margin: 1vh;
+    aspect-ratio: 1;
+}
+
+.chess-chatbot-evaluation {
+    align-self: flex-start;
+    width: 4vh;
+    border-radius: 50%;
+    margin: 1vh;
+    aspect-ratio: 1;
+}
+
+.chess-chatbot-text {
+    width: 90%;
+    color: var(--background-chatbot-text);
+    margin: 1vh;
+}
+
+/* Chessboard.js */
+.highlight1-32417, .highlight2-9c5d2{
+    box-shadow: 0px 0px 5px 100px inset var(--chess-highlight-color);
+}
+
+.board-b72b1{
+    box-sizing: content-box;
+    border-radius: 2px;
+}
+
+.white-1e1d7{
+    background-color: var(--chess-white);
+    color: var(--chess-text-color);
+}
+.black-3c85d{
+    background-color: var(--chess-black);
+    color: var(--chess-text-color);
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+@media (max-width: 648px) {
+    body {
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--background);
+    }
+    .chess-side-d{
+        width: 100%;
+        height: fit-content;
+    
+        border-radius: 20px 5px 20px 5px;
+        background-color: var(--background-chatbot);
+        aspect-ratio: 1;
+
+    }
+    .chess-side-e {
+        width: 100%;
+        height: fit-content;
+        scroll-behavior: smooth;
+    }
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        width: 95%;
+        height: fit-content;
+        background-color: var(--background-container);
+        border-radius: 1vh;
+        color: white;
+        padding: 2vh;
+        
+    }
+    #line-container {
+        height: 0.2vh;
+        width: 100%;
+        margin: 2.5%;
+        background-color: rgb(199, 199, 199);
+    }
+}
