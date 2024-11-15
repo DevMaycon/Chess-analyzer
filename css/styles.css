@@ -9,7 +9,7 @@
 
     --background-chatbot: rgb(4, 0, 3);
     --background-chatbot-text: rgb(254, 254, 254);
-    --background-chatbot-message: rgb(52, 43, 57);
+    --background-chatbot-message: rgb(43, 38, 46);
 
     --chess-white: rgba(239, 239, 239, 0.6);
     --chess-black: rgba(97, 99, 241, 0.6);
@@ -127,10 +127,12 @@ body {
 
     border-radius: 20px 5px 20px 5px;
     background-color: var(--background-chatbot);
+    box-shadow: 0px 0px 2px white;
 }
 
 .chess-side-d *{
     font-family: 'Nunito';
+    user-select: none;
 }
 
 .chess-side-d::-webkit-scrollbar {
@@ -158,31 +160,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 2px solid white;
 }
 
 .chess-chatbot-header h1 {
     margin: 0px;
-    font-size: 3rem;
+    font-size: 1.5em;
 }
 
 .chess-chatbot-opening p {
     text-align: center;
     padding: 5px;
-    width: 100%;
+    width: 98%;
+    margin: auto;
+    border-radius: 10px;
     font-weight: 700;
     color: white;
-    margin: auto;
-    background-color: rgb(50, 50, 50);
-    border-bottom: 2px solid white;
-    border-right: 0px solid white;
-    border-left: 2px solid white;
+    background-color: var(--background-chatbot-message);
     text-decoration: underline;
     user-select: none;
+    border: 1px dotted white;
 }
 
 .chess-chatbot-logo {
-    width: 5%;
+    max-width: 5%;
     border-radius: 50%;
     margin: 1vh;
     aspect-ratio: 1;
