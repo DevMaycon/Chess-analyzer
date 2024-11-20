@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
         let evaluationJson = {message: 'Book Move.'};//await evaluation.json();
         if (await evaluationJson.message == "Book Move.") {
             openingHtml = document.getElementsByClassName('chess-chatbot-opening')[0];
-            console.log(openingHtml);
 
             //https://explorer.lichess.ovh/masters?play=e2e4,e7e6
             let movesString = ""
@@ -78,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function() {
             if (chessboard.uciHistory.length > enumeration+1) {
                 movesString += `${move},`;
             } else {
-                console.log(enumeration)
                 movesString += `${move}`;
             }
             });
@@ -87,10 +85,8 @@ document.addEventListener("DOMContentLoaded", function() {
             let openingName = fetch(openingUrl).then((res) => {
                 res.json().then((res) => {
                     openingHtml.innerHTML = `<p>${res["opening"]["name"]}</p>`
-                    console.log(openingHtml);
                 })
             })
-            console.log(openingUrl, openingName)
         }
     }
 
