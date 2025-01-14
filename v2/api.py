@@ -76,7 +76,7 @@ async def analyze_position():
         best_move = await info.wait()
         stockfish._cache[fen] = info
         stockfish._cache[fen].info['best_move'] = best_move
-        
+
     info = {
         "score": stockfish.cache_position[fen].info["score"].relative.score() / 10,
         "best_move": stockfish.cache_position[fen].info['best_move'].move,
@@ -85,4 +85,4 @@ async def analyze_position():
     return jsonify(info)
 
 if __name__ == "__main__":
-    app.run('0.0.0.0', 5000)
+    app.run('0.0.0.0', os.getenv('PORT', 5000))
