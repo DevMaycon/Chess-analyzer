@@ -54,13 +54,13 @@ async def analyze_position():
     fen = request.json.get('fen')
 
     # Verifica se a posição é uma jogada de abertura
-    book_move = is_book_move(fen)
-    if book_move:
-        return jsonify({
-            "score": None,
-            "best_move": None,
-            "message": 'Book Move.'
-        })
+    #book_move = is_book_move(fen)
+    #if book_move:
+    #    return jsonify({
+    #        "score": None,
+    #        "best_move": None,
+    #        "message": 'Book Move.'
+    #    })
 
     # Define o tabuleiro usando a posição FEN
     board = chess.Board(fen)
